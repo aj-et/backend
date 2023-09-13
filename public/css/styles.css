@@ -3,4 +3,95 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.siteName {
+  font-size: 2.5em;
+}
+
+.feature-button {
+  cursor: pointer;
+  width: 120px;
+}
+
+.feature-vehicle {
+  width: 100%;
+  z-index: 0;
+}
+
+.feature-card {
+  position: relative;
+}
+
+.feature-details {
+  position: absolute;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.upgrade-list, .nav-list {
+  list-style-type: none;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px 0 20px 0;
+  background-color: darkblue;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
+
+
+@media only screen and (min-width: 600px) {
+  /* This is for devices with screen size more than 600px */
+  body {
+    background-image: url(/images/site/checkerboard.jpg);
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+  }
+
+  #wrapper {
+    margin: 30px 0 30px 0;
+    background-color: white;
+    width: 1500px;
+    padding: 20px;
+    border: 5px solid skyblue;
+    border-radius: 20px;
+  }
+
+  .feature-vehicle {
+    width: 50%;
+  }
+
+  .feature-card {
+    display: flex;
+    justify-content: center;
+  }
+
+  .feature-details {
+    left: 25%;
+  }
+
+  .feature-button {
+    width: 150px;
+  }
 }
