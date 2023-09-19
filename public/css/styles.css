@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+  font-family: 'Comic Neue', cursive;
   /* padding: 0;
   margin: 0; */
 }
 
-a {
+#top-header a {
   text-decoration: none;
   color: black;
 }
@@ -23,7 +26,7 @@ a {
 
 .feature-button {
   cursor: pointer;
-  width: 120px;
+  width: 100px;
 }
 
 .feature-vehicle {
@@ -43,10 +46,18 @@ a {
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  line-height: 1px;
+  color: blue;
 }
 
 .upgrade-list, .nav-list {
   list-style-type: none;
+  padding-left: 0;
+}
+
+.review-list {
+  list-style-position: inside;
+  padding-left: 0;
 }
 
 .nav-list {
@@ -57,6 +68,32 @@ a {
   color: white;
   font-size: 20px;
   padding: 10px;
+}
+
+.stuff-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.upgrade-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.upgrade-list li {
+  width: 8em;
+  text-align: center;
+  margin: 10px;
+}
+
+.upgrade-img-holder {
+  padding: 10px;
+  height: 100px;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
 }
 
 
@@ -89,9 +126,23 @@ a {
 
   .feature-details {
     left: 25%;
+    /* font-size: 30px; */
   }
 
   .feature-button {
-    width: 150px;
+    width: 200px;
+  }
+
+  .stuff-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .stuff {
+    width: 50%;
+  }
+
+  .upgrade-list {
+    justify-content: start;
   }
 }
