@@ -48,7 +48,7 @@
   color: blue;
 }
 
-.upgrade-list, .nav-list {
+.upgrade-list {
   list-style-type: none;
   padding-left: 0;
 }
@@ -58,17 +58,23 @@
   padding-left: 0;
 }
 
-.nav-list {
-  display: flex;
-  justify-content: space-evenly;
+.nav-container {
   margin: 50px 0 20px 0;
   background-color: darkblue;
-  /* color: white; */
-  font-size: 20px;
   padding: 10px;
 }
 
-.nav-list a {
+.nav-container ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  padding-left: 0;
+  font-size: 20px;
+}
+
+.nav-container a {
   text-decoration: none;
   color: white;
   cursor: pointer;
@@ -100,6 +106,27 @@
   border: 1px solid black;
 }
 
+#inv-display {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.75em;
+  gap: 10px;
+}
+
+#inv-display img {
+  height: 10em;
+  padding-top: 10px;
+}
+
+#inv-display li {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+  height: 200px;
+}
 
 @media only screen and (min-width: 600px) {
   /* This is for devices with screen size more than 600px */
@@ -148,5 +175,24 @@
 
   .upgrade-list {
     justify-content: start;
+  }
+
+  .nav-container ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  #inv-display img {
+    height: 7em;
+  }
+
+  #inv-display {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  #inv-display li {
+    height: 400px;
+    width: 400px;
   }
 }
