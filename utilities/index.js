@@ -68,16 +68,16 @@ Util.buildInventoryGrid = async function(vehicleData) {
     const formattedMiles = vehicleData.inv_miles.toLocaleString();
     const html = `
         <div class="vehicle">
-            <div>
+            <div class='vehicle-image'>
                 <img src=${vehicleData.inv_image} alt=${vehicleData.inv_make} ${vehicleData.inv_model}>
             </div>
             <div class='vehicle-details'>
-                <h2>${vehicleData.inv_make} ${vehicleData.inv_model} Details</h2>
+                <h3>${vehicleData.inv_make} ${vehicleData.inv_model} Details</h3>
                 <div class='details'>
-                    <h3 class='bg-gray'>Price: ${vehicleData.inv_price}</h3>
-                    <p><span class='highlight'>Description:</span> ${vehicleData.inv_description}</p>
+                    <h3 class='bg-gray'>Price: $${Intl.NumberFormat('en-US').format(vehicleData.inv_price)}</h3>
+                    <p class='bg-non-gray'><span class='highlight'>Description:</span> ${vehicleData.inv_description}</p>
                     <p class='bg-gray'><span class='highlight'>Color:</span> ${vehicleData.inv_color}</p>
-                    <p><span class='highlight'>Miles:</span> ${formattedMiles}</p>
+                    <p class='bg-non-gray'><span class='highlight'>Miles:</span> ${formattedMiles}</p>
                 </div>
             </div>
         </div>

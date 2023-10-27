@@ -139,18 +139,22 @@
 
 .vehicle-details {
   display: flex;
-  width: 50%;
   flex-direction: column;
+  width: 60%;
 }
 
 .bg-gray {
   background-color:rgba(128,128,128,0.2);
-  /* margin: 5px; */
+  padding: 20px; 
 }
 
-.details {
-  
-  padding: 25px;
+.bg-non-gray {
+  padding: 0 0 20px 20px;
+}
+
+.vehicle-image img {
+  margin-top: 45px;
+  border: 1px solid black;
 }
 
 @media only screen and (min-width: 600px) {
