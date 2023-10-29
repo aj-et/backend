@@ -59,7 +59,7 @@ Util.buildClassificationGrid = async function(data){
 }
 
 /* **************************************
-* Build the inventory view HTML
+* Build the inventory view HTML assignment 03
 * ************************************ */
 Util.buildInventoryGrid = async function(vehicleData) {
     if (!vehicleData || typeof vehicleData !== 'object') {

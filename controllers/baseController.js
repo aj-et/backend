@@ -6,6 +6,7 @@ baseController.buildHome = async function(req, res){
     res.render("index", {title: "Home", nav})
 }
 
+// assignment 03
 baseController.errorHandler = async function (req, res, next) {
     const nav = await utilities.getNav()
     const title = 'Error: 500'
