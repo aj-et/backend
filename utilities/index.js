@@ -69,7 +69,7 @@ Util.buildInventoryGrid = async function(vehicleData) {
     const html = `
         <div class="vehicle">
             <div class='vehicle-image'>
-                <img src=${vehicleData.inv_image} alt=${vehicleData.inv_make} ${vehicleData.inv_model}>
+                <img src=${vehicleData.inv_image} alt=${vehicleData.inv_make}>
             </div>
             <div class='vehicle-details'>
                 <h3>${vehicleData.inv_make} ${vehicleData.inv_model} Details</h3>
