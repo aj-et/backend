@@ -1,0 +1,44 @@
+<!-- Content Heading assignment 03 --> 
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error => { %>
+            <li><%= error.msg %></li>
+        <%  }) %>
+    </ul>
+<% } %>
+
+<%- messages() %>
+
+<!-- Register Items Display -->
+<form action="/account/register" method="post" class="form-container">
+    <div class="form-fields">
+        <label for="account_firstname">First name</label>
+        <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
+        <label for="account_lastname">Last name</label>
+        <input type="text" name="account_lastname" id="accountLastname" required value="<%= locals.account_lastname %>">
+        <label for="account_email">Email address</label>
+        <input type="email" name="account_email" id="accountEmail" required placeholder="Enter a valid email address" value="<%= locals.account_email %>">
+        <label for="account_password">Password</label>
+        <small>
+            <div>
+                <p>Password should have:</p>
+                <ul>
+                    <li>At least 12 characters</li>
+                    <li>1 uppercase letter</li>
+                    <li>1 number</li>
+                    <li>1 special character</li>
+                </ul>
+            </div>
+        </small>
+        <input type="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+        <!-- Minimum 12 characters, at least 1 capital letter, at least 1 number, at least 1 special character -->
+        <button>Register</button>
+    </div>
+    <p>Already have an account? <a href="/account/login">Log-in</a></p>
+</form>

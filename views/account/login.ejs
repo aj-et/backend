@@ -1,0 +1,39 @@
+<!-- Content Heading assignment 03 --> 
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<% if (errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error => { %>
+            <li><%= error.msg %></li>
+        <%  }) %>
+    </ul>
+<% } %>
+
+<%- messages() %>
+
+<!-- Login Items Display -->
+<form action="/account/login" method="post" class="form-container">
+    <div class="form-fields">
+        <label for="account_email">Email:</label>
+        <input type="email" name="account_email" required value="<%= locals.account_email %>">
+        <label for="account_password">Password:</label>
+        <small>
+            <div>
+                <p>Password should have:</p>
+                <ul>
+                    <li>At least 12 characters</li>
+                    <li>1 uppercase letter</li>
+                    <li>1 number</li>
+                    <li>1 special character</li>
+                </ul>
+            </div>
+        </small>
+        <input type="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+        <button>LOGIN</button>
+    </div>
+    <p>No account? <a href="/account/register">Sign-up</a></p>
+</form>
