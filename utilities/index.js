@@ -86,6 +86,15 @@ Util.buildInventoryGrid = async function(vehicleData) {
     return html;
 }
 
+Util.buildClassificationOptions = async function (req, res, next) {
+    let data = await invModel.getClassifications();
+    let options = data.rows.map(row => ({
+        value: row.classification_id,
+        label: row.classification_name,
+    }))
+    return options;
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
