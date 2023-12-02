@@ -6,6 +6,7 @@ const accController = require('../controllers/accountController')
 const regValidate = require('../utilities/account-validation')
 
 // Get Route when 'My account' link is clicked
+router.get("/", utilities.checkLogin, utilities.handleErrors(accController.buildAccountManagementView));
 router.get("/login", utilities.handleErrors(accController.buildLogin));
 router.get("/register", utilities.handleErrors(accController.buildRegister));
 
@@ -20,9 +21,7 @@ router.post(
     '/login',
     regValidate.loginRules(),
     regValidate.checkLogData,
-    (req, res) => {
-        res.status(200).send('login process')
-    }
+    utilities.handleErrors(accController.loginAccount)
 )
 
 module.exports = router;

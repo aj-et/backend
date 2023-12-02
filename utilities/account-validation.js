@@ -17,22 +17,10 @@ validate.loginRules = () => {
         .withMessage("A valid email is required.")
         .custom(async (account_email) => {
             const emailExists = await accountModel.checkExistingEmail(account_email)
-            if (emailExists){
-                throw new Error("Email exists. Please log in or use different email")
+            if (!emailExists){
+                throw new Error("Account does not exist. Please log in or use different email")
             }
         }),
-    
-        // password is required and must be strong password
-        body("account_password")
-            .trim()
-            .isStrongPassword({
-            minLength: 12,
-            minLowercase: 1,
-            minUppercase: 1,
-            minNumbers: 1,
-            minSymbols: 1,
-            })
-            .withMessage("Password does not meet requirements."),
     ]
 }
 
@@ -47,7 +35,7 @@ validate.checkLogData = async (req, res, next) => {
         let nav = await utilities.getNav()
         res.render("account/login", {
             errors,
-            title: "Login",
+            title: "Logged in",
             nav,
             account_email
         })
