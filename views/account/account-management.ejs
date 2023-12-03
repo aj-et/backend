@@ -15,7 +15,7 @@
 <%- messages() %>
 
 <h2>Welcome <%- locals.accountData.account_firstname %></h2>
-<a href="/account/updateView/<%- locals.accountData.account_id %>">Update account information</a>
+<a href="/account/update/<%- locals.accountData.account_id %>">Update account information</a>
 
 <!-- Task 3 bullet 1 - 3 -->
 <% if(locals.accountData.account_type === 'Employee' || locals.accountData.account_type === 'Admin') { %>
