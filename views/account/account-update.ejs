@@ -14,4 +14,43 @@
 
 <%- messages() %>
 
-<p>This is the account update page</p>
+<!-- Account update form -->
+<h2>Account Update</h2>
+<form action="/account/update" method="post" class="form-container">
+    <div class="form-fields">
+        <label for="account_firstname">First name</label>
+        <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
+
+        <label for="account_lastname">Last name</label>
+        <input type="text" name="account_lastname" id="accountLastname" required value="<%= locals.account_lastname %>">
+
+        <label for="account_email">Email address</label>
+        <input type="email" name="account_email" id="accountEmail" required placeholder="Enter a valid email address" value="<%= locals.account_email %>">
+
+        <button>Update</button>
+
+        <input type="hidden" name="account_id" <% if(locals.account_id) { %> value="<%= locals.account_id %>" <% } %>>
+        
+    </div>
+</form>
+
+<!-- Password update form -->
+<h2>Password Update</h2>
+<form action="/account/updatePassword" method="post" class="form-container">
+    <div class="form-fields">
+        <label for="account_password">Password</label>
+        <small>
+            <div>
+                <p>Password should have:</p>
+                <ul>
+                    <li>At least 12 characters</li>
+                    <li>1 uppercase letter</li>
+                    <li>1 number</li>
+                    <li>1 special character</li>
+                </ul>
+            </div>
+        </small>
+        <input type="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+        <input type="hidden" name="account_id" <% if(locals.account_id) { %> value="<%= locals.account_id %>" <% } %>>
+    </div>
+</form>
