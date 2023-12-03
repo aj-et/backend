@@ -30,16 +30,12 @@ router.get(
 // Route to build inventory by classification view
 router.get(
     "/type/:classificationId",
-    utilities.checkLogin,
-    utilities.isAuthorized,
     invController.buildByClassificationId
 );
 
 // assignment 03
 router.get(
-    "/detail/:inv_id", 
-    utilities.checkLogin,
-    utilities.isAuthorized,
+    "/detail/:inv_id",
     invController.buildByInventoryId
 );
 
