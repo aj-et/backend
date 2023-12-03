@@ -27,7 +27,7 @@
         <label for="account_email">Email address</label>
         <input type="email" name="account_email" id="accountEmail" required placeholder="Enter a valid email address" value="<%= locals.account_email %>">
 
-        <button>Update</button>
+        <button>Update Account</button>
 
         <input type="hidden" name="account_id" <% if(locals.account_id) { %> value="<%= locals.account_id %>" <% } %>>
         
@@ -51,6 +51,7 @@
             </div>
         </small>
         <input type="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+        <button>Update Password</button>
         <input type="hidden" name="account_id" <% if(locals.account_id) { %> value="<%= locals.account_id %>" <% } %>>
     </div>
 </form>
