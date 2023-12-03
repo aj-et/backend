@@ -244,5 +244,55 @@ invCont.updateInventory = async function (req, res, next) {
     }
 }
 
+/* ***************************
+ *  Build delete confirmation view
+ * ************************** */
+invCont.deleteInventoryView = async function (req, res, next) {
+    let nav = await utilities.getNav()
+    const vehicleId = parseInt(req.params.inv_id)
+    const vehicleData = await invModel.getVehicleByInventoryId(vehicleId)
+    const vehicleName = `${vehicleData.inv_make} ${vehicleData.inv_model}`
+    res.render("./inventory/delete-inventory", {
+        title: "Delete " + vehicleName,
+        nav,
+        errors: null,
+        inv_id: vehicleData.inv_id,
+        inv_make: vehicleData.inv_make,
+        inv_model: vehicleData.inv_model,
+        inv_year: vehicleData.inv_year,
+        inv_price: vehicleData.inv_price
+    })
+}
+
+/* *****
+*   Process Delete Inventory
+* *****/
+invCont.deleteInventory = async function (req, res, next) {
+    const { inv_id, inv_make, inv_model } = req.body
+
+    const deleteResult = await invModel.deleteInventory(inv_id)
+    const vehicleName = `${deleteResult.inv_make} ${deleteResult.inv_model}`
+
+    if(deleteResult) {
+        req.flash("notice", `Vehicle uccessfully deleted.`)
+        res.redirect("/inv/")
+    } else {
+        let nav = await utilities.getNav()
+        let options = await utilities.buildClassificationOptions()
+        req.flash("notice", "Sorry, deleting the vehicle failed. Please try again.")
+        res.status(501).render("inventory/delete-inventory", {
+            title: "Delete " + vehicleName,
+            nav,
+            options,
+            errors: null,
+            inv_make,
+            inv_model,
+            inv_year,
+            inv_price,
+            inv_id
+        })
+    }
+}
+
 
 module.exports = invCont

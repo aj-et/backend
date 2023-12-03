@@ -16,7 +16,7 @@
 <%- messages() %>
 
 <!-- Add New Inventory Items Display -->
-<form action="/inv/update" method="post" class="form-container" id="edit-inventory-form">
+<form action="/inv/update" method="post" class="form-container" id="inventory-form">
     <div class="form-fields">
         <label for="classification_id">Classification</label>
         <select name="classification_id">
@@ -55,7 +55,7 @@
         <label for="inv_color">Color</label>
         <input type="text" name="inv_color" required value="<%= locals.inv_color %>">
 
-        <button type="submit" id="edit-inventory-btn" disabled>Update Vehicle</button>
+        <button type="submit" id="inventory-btn" disabled>Update Vehicle</button>
         <input type="hidden" name="inv_id"
         <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
         <% }  %>>
