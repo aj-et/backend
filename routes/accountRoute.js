@@ -24,4 +24,6 @@ router.post(
     utilities.handleErrors(accController.loginAccount)
 )
 
+router.get('/logout', utilities.checkLogin, utilities.handleErrors(accController.logoutAccount))
+
 module.exports = router;
